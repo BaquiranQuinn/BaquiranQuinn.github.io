@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Baquiran Quinn Xage B. - Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Include html2pdf library in the head -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+  <body>
+    <!-- Top Header Navigation aligned to the right as shown in image_19c7c1.png -->
+    <header class="site-header">
+      <nav>
+        <ul>
+          <li><a class="nav-link" href="#" id="nav-about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Clean Split Container -->
+    <main class="single-screen-layout">
+      <!-- Left Profile Area -->
+      <div class="left-pane">
+  <div class="profile-circle">
+    <img src="profile.jpg" alt="Quinn Xage B. Baquiran">
+  </div>
+</div>
+
+      <!-- Right Bio Area -->
+      <div class="right-pane card">
+  <div class="hero-text">
+    <h1>Hi, I'm <span class="highlight">Baquiran Quinn Xage B.</span></h1>
+    <p class="subtitle">I am a BSIT Cybersecurity Student</p>
+  </div>
+  
+  <!-- Interactive Pill Buttons -->
+  <div class="button-group">
+    <button class="btn" id="btn-view-resume">CV / Resume</button>
+    <button class="btn" id="btn-download-cv">Download CV</button>
+    <button class="btn" id="btn-contact-me">Contact</button>
+  </div>
+</div>
+    </main>
+
+    <!-- WINDOW POP-UPS (MODALS) -->
+
+    <!-- 1. Resume / CV Window -->
+    <div id="modal-resume" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" data-modal="modal-resume">&times;</span>
+        
+        <!-- Document Header inside the pop-up -->
+        <div class="resume-header">
+          <h2>BAQUIRAN QUINN XAGE B.</h2>
+          <p class="resume-subtitle">BSIT Cybersecurity Student</p>
+        </div>
+
+        <div class="modal-body scrollable-resume">
+          
+          <!-- [ABOUT ME] Section -->
+          <section class="resume-section">
+            <h3>[ABOUT ME]</h3>
+            <p>
+              An aspiring Cybersecurity professional focused on network security, threat assessment, and secure systems architecture. Committed to developing technical skills to safeguard critical digital infrastructure and respond to modern cyber incidents.
+            </p>
+          </section>
+
+          <!-- SKILLS & TOOLS Section -->
+          <section class="resume-section">
+            <h3>SKILLS & TOOLS</h3>
+            <div class="resume-grid">
+              <!-- Technical Skills Column -->
+              <div class="resume-col">
+                <h4>TECHNICAL SKILLS</h4>
+                <ul>
+                  <li>N/A</li>
+                  <li>N/A</li>
+                  <li>N/A</li>
+                  <li>N/A</li>
+                </ul>
+              </div>
+              <!-- Tools & Software Column -->
+              <div class="resume-col">
+                <h4>TOOLS & SOFTWARE</h4>
+                <ul>
+                  <li>N/A</li>
+                  <li>N/A</li>
+                  <li>N/A</li>
+                  <li>N/A</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- EXPERIENCE Section -->
+          <section class="resume-section">
+            <h3>EXPERIENCE</h3>
+            <ul class="resume-list">
+              <li>
+                <strong>Cybersecurity Academic Labs & Projects</strong>
+                <p>N/A</p>
+              </li>
+              <li>
+                <strong>Community Tech Support & Coordination</strong>
+                <p>N/A</p>
+              </li>
+            </ul>
+          </section>
+
+          <!-- EDUCATION Section -->
+          <section class="resume-section">
+            <h3>EDUCATION</h3>
+            <ul class="resume-list">
+              <li>
+                <strong>Bachelor of Science in Information Technology - Major in Cybersecurity</strong>
+                <p>First-Year Undergraduate Student | College Level</p>
+              </li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Download Window -->
+    <div id="modal-download" class="modal">
+      <div class="modal-content text-center">
+        <span class="close-btn" data-modal="modal-download">&times;</span>
+        <h2>Download CV</h2>
+        <div class="modal-body">
+          <p>Click below to save the official PDF file directly to your device.</p>
+          <!-- Added onclick handler to generate the PDF -->
+          <button class="btn download-confirm-btn" onclick="downloadResumePDF()">Confirm Download</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Contact Window -->
+    <div id="modal-contact" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" data-modal="modal-contact">&times;</span>
+        <h2>Contact Me</h2>
+        <div class="modal-body contact-info">
+          <p><strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+          <p><strong>Phone:</strong> +63 9XX XXX XXXX</p>
+          <div class="social-grid">
+            <a href="#" class="social-tag">Discord</a>
+            <a href="#" class="social-tag">GitHub</a>
+            <a href="#" class="social-tag">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript to Handle the Pop-up Windows -->
+    <script>
+      // DOM Elements
+      const triggers = {
+        'btn-view-resume': 'modal-resume',
+        'nav-resume': 'modal-resume',
+        'btn-download-cv': 'modal-download',
+        'btn-contact-me': 'modal-contact',
+        'nav-contact': 'modal-contact'
+      };
+
+      // Open Modal on Click
+      Object.keys(triggers).forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById(triggers[id]).style.display = 'block';
+          });
+        }
+      });
+
+      // Close Modal via 'X' button
+      document.querySelectorAll('.close-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const modalId = btn.getAttribute('data-modal');
+          document.getElementById(modalId).style.display = 'none';
+        });
+      });
+
+      // Close Modal if background area is clicked
+      window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+          e.target.style.display = 'none';
+        }
+      });
+      function downloadResumePDF() {
+  // Target the structural element from your image_1a1dfd.jpg layout
+  const element = document.querySelector('.scrollable-resume');
+  
+  // PDF configuration options
+  const opt = {
+    margin:       [15, 15, 15, 15], // Margin in mm
+    filename:     'Baquiran_Quinn_Xage_CV.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+
+  // Run html2pdf and automatically close the confirmation window when done
+  html2pdf().set(opt).from(element).save().then(() => {
+    document.getElementById('modal-download').style.display = 'none';
+  });
+}
+    </script>
+  </body>
+</html>

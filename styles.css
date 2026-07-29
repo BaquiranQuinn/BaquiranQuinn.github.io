@@ -1,0 +1,298 @@
+/* Base Reset & Lock Scroll */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #faf7f2;
+  color: #222;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Navigation Positioning */
+.site-header {
+  width: 100%;
+  padding: 24px 48px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.site-header ul {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+/* Main Split View Layout */
+.single-screen-layout {
+  flex: 1;
+  display: flex;
+  align-items: center;       
+  justify-content: center;   
+  gap: 50px;                 
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Binago para maging square at may bagong styling */
+.profile-circle {
+  width: 280px;              
+  height: 280px;
+  border: 4px solid #333;    
+  border-radius: 12px;       
+  overflow: hidden;          
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         
+  object-position: center;
+}
+
+.left-pane {
+  flex: none; 
+}
+
+.right-pane {
+  flex: none; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Typography Details */
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.hero-text .subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* Button UI styling */
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  background: transparent;
+  border: 2px solid #333;
+  padding: 10px 22px;
+  border-radius: 50px; /* Pill shape matching image_19c7c1.png */
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease-index;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Pop-up Window (Modal) Core Box Mechanics */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 12vh auto;
+  padding: 32px;
+  border: 2px solid #333;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 640px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+.modal-body {
+  margin-top: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.download-confirm-btn {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Internal Contact Grid Elements */
+.contact-info p {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.social-grid {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-tag {
+  border: 1px solid #aaa;
+  padding: 6px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.social-tag:hover {
+  border-color: #333;
+  color: #333;
+}
+/* Pop-up Resume Formatting */
+.resume-header {
+  border-bottom: 2px solid #333;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.resume-header h2 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.resume-subtitle {
+  color: #666;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* Scroll area if content exceeds window height */
+.scrollable-resume {
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 10px;
+  text-align: left;
+}
+
+.resume-section {
+  margin-bottom: 24px;
+}
+
+.resume-section h3 {
+  font-size: 1.1rem;
+  color: #222;
+  border-bottom: 1px dashed #aaa;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Two-column grid matching the sketch */
+.resume-grid {
+  display: flex;
+  gap: 30px;
+}
+
+.resume-col {
+  flex: 1;
+}
+
+.resume-col h4 {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.resume-section ul {
+  padding-left: 20px;
+}
+
+.resume-section li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.resume-list {
+  list-style-type: none;
+  padding-left: 0 !important;
+}
+
+.resume-list li {
+  margin-bottom: 14px;
+}
+
+.resume-list strong {
+  display: block;
+  font-size: 1rem;
+  color: #111;
+}
+
+.card {
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0px #333; /* Clean retro/minimalist shadow */
+  padding: 24px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #333;
+}
