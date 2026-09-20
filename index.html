@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="styles.css" />
   <!-- Include html2pdf library in the head -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <!-- Interactive toolkit explorer script (loaded after HTML is parsed) -->
+  <script src="script.js" defer></script>
 </head>
   <body>
     <!-- Top Header Navigation aligned to the right as shown in image_19c7c1.png -->
@@ -41,6 +43,25 @@
   </div>
 </div>
     </main>
+
+    <!-- NEW SECTION: Cybersecurity Toolkit Explorer -->
+    <section class="toolkit-section card" id="toolkit-section">
+      <h2>Cybersecurity Toolkit Explorer</h2>
+      <p class="toolkit-subtitle">A quick look at tools and areas I'm learning. Search by name, category, or level.</p>
+
+      <div class="toolkit-controls">
+        <input
+          type="text"
+          id="toolkit-search"
+          class="toolkit-search-input"
+          placeholder="Search e.g. 'network', 'beginner', 'Wireshark'..."
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- Empty container: filled entirely by script.js -->
+      <div id="toolkit-list" class="toolkit-list"></div>
+    </section>
 
     <!-- WINDOW POP-UPS (MODALS) -->
 
