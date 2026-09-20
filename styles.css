@@ -9,10 +9,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #faf7f2;
   color: #222;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +19,7 @@ body {
 /* Header Navigation Positioning */
 .site-header {
   width: 100%;
-  padding: 24px 48px;
+  padding: clamp(12px, 3vw, 24px) clamp(16px, 6vw, 48px);
   display: flex;
   justify-content: flex-end;
 }
@@ -47,19 +46,20 @@ body {
 .single-screen-layout {
   flex: 1;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;       
   justify-content: center;   
-  gap: 50px;                 
+  gap: clamp(24px, 5vw, 50px);                 
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: clamp(16px, 4vw, 24px);
 }
 
 /* Binago para maging square at may bagong styling */
 .profile-circle {
-  width: 280px;              
-  height: 280px;
+  width: clamp(160px, 30vw, 280px);
+  height: clamp(160px, 30vw, 280px);
   border: 4px solid #333;    
   border-radius: 12px;       
   overflow: hidden;          
@@ -81,7 +81,8 @@ body {
 }
 
 .right-pane {
-  flex: none; 
+  flex: 1 1 300px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,13 +90,13 @@ body {
 
 /* Typography Details */
 .hero-text h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
   margin-bottom: 8px;
   font-weight: 700;
 }
 
 .hero-text .subtitle {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   color: #666;
   margin-bottom: 24px;
 }
@@ -103,6 +104,7 @@ body {
 /* Button UI styling */
 .button-group {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
@@ -117,6 +119,7 @@ body {
   text-decoration: none;
   color: #333;
   transition: all 0.2s ease-index;
+  white-space: nowrap;
 }
 
 .btn:hover {
@@ -139,12 +142,14 @@ body {
 
 .modal-content {
   background-color: #fff;
-  margin: 12vh auto;
-  padding: 32px;
+  margin: 6vh auto;
+  padding: clamp(18px, 4vw, 32px);
   border: 2px solid #333;
   border-radius: 12px;
-  width: 90%;
+  width: 92%;
   max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
   position: relative;
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
@@ -244,11 +249,12 @@ body {
 /* Two-column grid matching the sketch */
 .resume-grid {
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  gap: 20px 30px;
 }
 
 .resume-col {
-  flex: 1;
+  flex: 1 1 200px;
 }
 
 .resume-col h4 {
