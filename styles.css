@@ -44,7 +44,7 @@ body {
 
 /* Main Split View Layout */
 .single-screen-layout {
-  flex: 1;
+  min-height: 60vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;       
@@ -301,4 +301,83 @@ body {
 .card:hover {
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0px #333;
+}
+
+/* =========================================================
+   NEW: Cybersecurity Toolkit Explorer section
+   ========================================================= */
+.toolkit-section {
+  width: 92%;
+  max-width: 900px;
+  margin: 0 auto 48px auto;
+}
+
+.toolkit-section h2 {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  margin-bottom: 4px;
+}
+
+.toolkit-subtitle {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.toolkit-controls {
+  margin-bottom: 14px;
+}
+
+.toolkit-search-input {
+  width: 100%;
+  padding: 10px 16px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.toolkit-search-input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+/* The empty container script.js fills */
+.toolkit-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.toolkit-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background-color: #fdfcfa;
+}
+
+.toolkit-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.toolkit-meta {
+  font-size: 0.8rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.toolkit-desc {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.toolkit-empty-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #777;
+  padding: 24px 0;
+  font-style: italic;
 }
